@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from './Button.js';
+import ColorButton from './ColorButton.js';
+
 import Card from './Card.js';
 import Jumbotron from './Jumbotron.js';
 import NavBar from './NavBar.js';
@@ -34,7 +36,7 @@ const App = () => {
         >
           <NewsletterForm />
         </Jumbotron>
-
+        
         <Jumbotron 
           title="Featured Products" 
           description="Check out these latest trendy items"
