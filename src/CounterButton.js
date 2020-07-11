@@ -16,6 +16,7 @@ const CounterButton = () => {
         // update the state using setState
         setState(
             {
+                ...state,        //spread operator. this will copy all the keys in the useState so that we do not type it again
                 label: newLabel,
             }
         )
