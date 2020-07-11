@@ -3,12 +3,19 @@ import React, { useState } from 'react';
 const ColorButton = () => {
 
 
-    const [state, setState] = useState(   // [state, ?]
+    const [state, setState] = useState(   //[state, setState]     - useState will return an array
         {
             label: 'red',
             className: 'btn-danger'
         }
-    )
+    ) // [state, ?]     
+
+    // can create a different state
+    // const [width, setWidth] = useState(
+    //     {
+
+    //     }
+    // )
 
     const changeColor = () => {
 
@@ -34,7 +41,9 @@ const ColorButton = () => {
     return (
         <button 
             onClick={changeColor}
-            className={`btn ${state.className}`}>{state.label}</button>
+            className={`btn ${state.className}`}>
+                {state.label}
+        </button>
     )
 }
 

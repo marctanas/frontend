@@ -20,7 +20,7 @@ const NavBar = () => {
                 className="btn-primary">
                     LogIn
                 </Button> */}
-                <button onClick={promptLogin} className="butn btn-primary">
+                <button onClick={promptLogin} className="btn btn-primary">
                         LogIn
                 </button>
 
