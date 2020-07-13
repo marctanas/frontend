@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import AppContext from './AppContext';
 import { Link } from 'react-router-dom';
-import Button from './Button';
+//import Button from './Button';
 import logo from './logo.svg';
-import Jumbotron from './Jumbotron';
+//import Jumbotron from './Jumbotron';
 
 const NavBar = () => {
 
@@ -32,10 +32,11 @@ const NavBar = () => {
 
             <div style={{display: 'flex'}}>
                 {
-                    globalState.loggedIn === false && <Link
+                    globalState.loggedIn === false && 
+                    <Link
                     to="/login"
                     className="btn btn-primary">
-                        Log In
+                        Log In / Register
                     </Link>
                 }
 

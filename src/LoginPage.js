@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import AppContext from './AppContext';
 import NavBar from './NavBar.js';
 
@@ -40,6 +40,9 @@ const LoginPage = () => {
         .then (
             (json) => {
                 const { message, jsonwebtoken } = json;
+
+
+                // if web token exists (meaning login was successful)
                 if(jsonwebtoken) {
                     // update the globalState
                     setGlobalState(
@@ -52,6 +55,7 @@ const LoginPage = () => {
                     // save the jwt in the browser
                     localStorage.setItem('jwt', jsonwebtoken);
 
+                    //turn off the preloader
                     setState({...state, loading: false})
                 } else {
                     // throw an error
@@ -108,7 +112,11 @@ const LoginPage = () => {
                                 type="button"
                                 className="btn btn-primary">Login</button>
 
+                                
+                                <p> <br/>If you're not a registered user, click <Link to="/register">here</Link> to create an account</p>
+
                                 {
+                                    //if loading is true then preloading is shown
                                  state.loading && 
                                  <div className="loader">
                                     <svg className="circular" viewBox="25 25 50 50">
