@@ -54,7 +54,7 @@ const RegistrationPage = () => {
                 {
                     ...state,
                     errors: errors,
-                    messages: messages
+                    messages: messages,
                 }
             )
             return;
@@ -79,7 +79,9 @@ const RegistrationPage = () => {
                 email: emailField.value,
                 password: passwordField.value
             }),
-            headers: {"Content-Type": "application/json"}
+            headers: {
+                "Content-Type": "application/json"
+            }
         })
         .then(
             (response)=>response.json()
@@ -100,7 +102,6 @@ const RegistrationPage = () => {
                     //alert("Please check all the fields");
                     setState(
                         {
-                            ...state,
                             loading: false
                         }
                     )
