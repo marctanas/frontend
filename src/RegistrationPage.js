@@ -20,6 +20,38 @@ const RegistrationPage = () => {
     let emailField;
     let passwordField;
 
+    const uploadPhoto = (e) => {
+        // collect the files form the e (event)
+        const files = Array.from(e.target.files);
+
+        // create FormData()
+        const formData = new FormData();
+
+        // append the files to the FormData
+        files.forEach( (file, index) => {
+            formData.append(index, file);
+        } );
+
+        // Fetch request tp send the files
+        fetch(`${process.env.REACT_APP_API_URL}users/image-upload`,
+            {
+                method: 'POST',
+                body: formData
+            }
+        )
+        .then(
+            (response)=>response.json()
+        )
+        .then(
+            (json)=> {
+                console.log('from backend', json)
+            }
+        )
+
+    }
+
+
+
     const registerUser = () => {
         // console.log(
         //     firstNameField.value,
@@ -177,6 +209,12 @@ const RegistrationPage = () => {
                                     className="form-control" 
                                     aria-describedby="password"/>
                                 </div>
+
+                                <label>
+                                    Upload Photo
+                                </label>
+                                <input type="file" onChange={uploadPhoto} multiple/>
+                                <br/><br/>
 
                                 <button
                                 onClick={registerUser}
